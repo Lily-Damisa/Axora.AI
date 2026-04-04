@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import joblib
 from datetime import date
+import os
 
 from claims_process import process_claim
 
@@ -9,7 +10,12 @@ st.set_page_config(page_title="Axora AI - Health Insurance Claims Processing & F
 
 @st.cache_resource
 def load_model():
+    if not os.path.exists("fraud_model.pkl"):
+        import fraud_model  # this will run training
+
     return joblib.load("fraud_model.pkl")
+model = load_model()
+
 
 model = load_model()
 

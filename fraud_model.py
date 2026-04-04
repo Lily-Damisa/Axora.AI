@@ -1,10 +1,18 @@
 import pandas as pd
 import joblib
+import os
 
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import StandardScaler
+
+# Loading data from Kaggle
+if not os.path.exists("data/fraud_dataset/train.csv"):
+    os.system("pip install kaggle")
+    os.system("kaggle datasets download -d rohitrox/healthcare-provider-fraud-detection-analysis")
+    os.system("unzip healthcare-provider-fraud-detection-analysis.zip -d data")
+
 
 # Load data
 train = pd.read_csv("data/fraud_dataset/train.csv")

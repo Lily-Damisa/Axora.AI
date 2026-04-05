@@ -1,0 +1,16 @@
+# Virtual environment
+.axora./
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Data files
+data/
+*.csv
+
+# Models
+*.pkl
+
+# System files
+.DS_Store
